@@ -1,15 +1,15 @@
-import zipfile                     #Library used for password encrypted zipped folder/file
+import zipfile                   
 import time
 
-folderpath = input('Path to the file: ')  #Get the target file path and name from the user
-zipf = zipfile.ZipFile(folderpath)      #Initialize a PdfFileReader object                             
+folderpath = input('Path to the file: ')  
+zipf = zipfile.ZipFile(folderpath)      
 global result
 result = 0
 global tried
 tried = 0
 c=0
-if not zipf:           #Checks if the file is password encrypted
-    print('The zipped file/folder is not password protected! You can successfully open it!')  #Notifies if the zipped file/folder is not password encrypted
+if not zipf:       
+    print('The zipped file/folder is not password protected! You can successfully open it!')
 
 else:
     starttime = time.time()
@@ -26,8 +26,8 @@ else:
             with zipfile.ZipFile(folderpath,'r') as zf:
                 zf.extractall(pwd=password)
                 print("Success! The password is: "+ word)
-                endtime = time.time()            #Save the end time
-                result = 1                       #Set result variable to 1 on success
+                endtime = time.time()            
+                result = 1                       
             break
         except:
              pass
